@@ -50,79 +50,72 @@ export interface LiveHackerRankData {
 
 // ── Baseline Verified Profiles ────────────────────────────────────────────────
 const INITIAL_LEETCODE: LiveLeetCodeData = {
-  totalSolved: 360,
+  totalSolved: 45,
   totalQuestions: 3330,
-  easySolved: 228,
+  easySolved: 41,
   totalEasy: 830,
-  mediumSolved: 128,
+  mediumSolved: 4,
   totalMedium: 1740,
-  hardSolved: 4,
+  hardSolved: 0,
   totalHard: 760,
-  ranking: 376165,
-  rating: 1451,
-  attendedContests: 13,
-  streak: 6,
-  activeDays: 125,
-  topLanguage: "C++ (248) · C (115)",
-  avatarUrl: "https://assets.leetcode.com/users/srujithcoder/avatar_1767680482.png",
+  ranking: 2894224,
+  rating: 1500,
+  attendedContests: 0,
+  streak: 3,
+  activeDays: 26,
+  topLanguage: "Python3 (33) · C++ (10)",
+  avatarUrl: "https://github.com/Takurreddy.png",
 };
 
 const INITIAL_GITHUB: LiveGitHubData = {
-  login: "Bvs2006",
-  name: "Venkata Srujith Bellamkonda",
-  avatar_url: "https://github.com/Bvs2006.png",
-  html_url: "https://github.com/Bvs2006",
-  public_repos: 8,
-  followers: 12,
-  following: 15,
-  bio: "AI & ML Engineer · Full-Stack & Systems Developer",
-  totalStars: 15,
+  login: "Takurreddy",
+  name: "Mukku Takur",
+  avatar_url: "https://github.com/Takurreddy.png",
+  html_url: "https://github.com/Takurreddy",
+  public_repos: 3,
+  followers: 0,
+  following: 0,
+  bio: "AI & Machine Learning Engineer",
+  totalStars: 0,
 };
 
 const INITIAL_CODEFORCES: LiveCodeforcesData = {
-  handle: "Bvs2006",
-  rating: 1240,
-  maxRating: 1240,
-  rank: "Pupil",
-  maxRank: "Pupil",
+  handle: "takurthedynamyte",
+  rating: 661,
+  maxRating: 661,
+  rank: "newbie",
+  maxRank: "newbie",
   contribution: 0,
 };
 
 const INITIAL_HACKERRANK: LiveHackerRankData = {
-  handle: "srujith7780",
-  badgesCount: 5,
-  badges: ["Problem Solving (Gold)", "Java (3★)", "SQL (3★)", "C (3★)", "C++ (3★)"],
+  handle: "takurthedynamyte",
+  badgesCount: 0,
+  badges: [],
 };
 
 export const VERIFIED_REPOS = [
   {
-    name: "movie-sentiment-classifier",
-    html_url: "https://github.com/Bvs2006/movie-sentiment-classifier",
-    description: "NLP sentiment analysis on 50k IMDb reviews with 88%+ accuracy",
-    stargazers_count: 5,
+    name: "Air-prediction-",
+    html_url: "https://github.com/Takurreddy/Air-prediction-",
+    description: "AI-Based Air Quality Prediction & Route Optimization",
+    stargazers_count: 0,
     language: "Python",
   },
   {
-    name: "notewise",
-    html_url: "https://github.com/Bvs2006/notewise",
-    description: "Teacher-student collaboration portal with real-time Firebase",
-    stargazers_count: 4,
-    language: "TypeScript",
+    name: "multi-agent-research-system",
+    html_url: "https://github.com/Takurreddy/multi-agent-research-system",
+    description: "Multi-Agent AI Research Assistant",
+    stargazers_count: 0,
+    language: "Python",
   },
   {
-    name: "emporium-ecommerce",
-    html_url: "https://github.com/Bvs2006/emporium-ecommerce",
-    description: "Multi-vendor e-commerce platform with REST APIs and MongoDB",
-    stargazers_count: 3,
-    language: "JavaScript",
-  },
-  {
-    name: "mini-gamehub",
-    html_url: "https://github.com/Bvs2006/mini-gamehub",
-    description: "Modern modular console game suite in C++ with OOP architecture",
-    stargazers_count: 3,
-    language: "C++",
-  },
+    name: "PhishGuard-AI",
+    html_url: "https://github.com/Takurreddy/PhishGuard-AI",
+    description: "Phishing detection platform",
+    stargazers_count: 0,
+    language: "Python",
+  }
 ];
 
 // ── Hook: LeetCode Direct Live GraphQL ─────────────────────────────────────────
@@ -180,30 +173,30 @@ export function useLeetCodeStats(username: string = "Takurreddy158") {
             const contest = json.data.userContestRanking;
             const subs = user.submitStats?.acSubmissionNum || [];
 
-            const allCount = subs.find((s: { difficulty: string }) => s.difficulty === "All")?.count || 360;
-            const easyCount = subs.find((s: { difficulty: string }) => s.difficulty === "Easy")?.count || 228;
-            const medCount = subs.find((s: { difficulty: string }) => s.difficulty === "Medium")?.count || 128;
-            const hardCount = subs.find((s: { difficulty: string }) => s.difficulty === "Hard")?.count || 4;
+            const allCount = subs.find((s: { difficulty: string }) => s.difficulty === "All")?.count || INITIAL_LEETCODE.totalSolved;
+            const easyCount = subs.find((s: { difficulty: string }) => s.difficulty === "Easy")?.count || INITIAL_LEETCODE.easySolved;
+            const medCount = subs.find((s: { difficulty: string }) => s.difficulty === "Medium")?.count || INITIAL_LEETCODE.mediumSolved;
+            const hardCount = subs.find((s: { difficulty: string }) => s.difficulty === "Hard")?.count || INITIAL_LEETCODE.hardSolved;
 
             const langStr = (user.languageProblemCount || [])
               .slice(0, 2)
               .map((l: { languageName: string; problemsSolved: number }) => `${l.languageName} (${l.problemsSolved})`)
-              .join(" · ") || "C++ (248) · C (115)";
+              .join(" · ") || INITIAL_LEETCODE.topLanguage;
 
             setData({
               totalSolved: allCount,
-              totalQuestions: 3330,
+              totalQuestions: INITIAL_LEETCODE.totalQuestions,
               easySolved: easyCount,
-              totalEasy: 830,
+              totalEasy: INITIAL_LEETCODE.totalEasy,
               mediumSolved: medCount,
-              totalMedium: 1740,
+              totalMedium: INITIAL_LEETCODE.totalMedium,
               hardSolved: hardCount,
-              totalHard: 760,
-              ranking: user.profile?.ranking || 376165,
-              rating: contest?.rating ? Math.round(contest.rating) : 1451,
-              attendedContests: contest?.attendedContestsCount || 13,
-              streak: user.userCalendar?.streak || 6,
-              activeDays: user.userCalendar?.totalActiveDays || 125,
+              totalHard: INITIAL_LEETCODE.totalHard,
+              ranking: user.profile?.ranking || INITIAL_LEETCODE.ranking,
+              rating: contest?.rating ? Math.round(contest.rating) : INITIAL_LEETCODE.rating,
+              attendedContests: contest?.attendedContestsCount || INITIAL_LEETCODE.attendedContests,
+              streak: user.userCalendar?.streak || INITIAL_LEETCODE.streak,
+              activeDays: user.userCalendar?.totalActiveDays || INITIAL_LEETCODE.activeDays,
               topLanguage: langStr,
               avatarUrl: user.profile?.userAvatar || INITIAL_LEETCODE.avatarUrl,
             });
