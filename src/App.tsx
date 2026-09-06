@@ -500,25 +500,7 @@ export default function App() {
           transition: "all 0.35s ease",
         }}
       >
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          style={{
-            fontFamily: "'Outfit', sans-serif",
-            fontSize: "1.3rem",
-            fontWeight: 900,
-            border: "none",
-            background: "none",
-            cursor: "pointer",
-            letterSpacing: "-0.03em",
-            display: "inline-flex",
-            alignItems: "center",
-          }}
-        >
-          <span className={isDark ? "gradient-logo-dark" : "gradient-logo-light"}>
-            VSB
-          </span>
-          <span style={{ color: "#06b6d4" }}>.dev</span>
-        </button>
+        <div aria-hidden="true" style={{ width: "60px" }} />
 
         {/* Desktop Links */}
         <div style={{ display: "flex", gap: "1.75rem", alignItems: "center" }} className="hidden md:flex">
