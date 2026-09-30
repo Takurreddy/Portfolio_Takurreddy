@@ -50,32 +50,32 @@ export interface LiveHackerRankData {
 
 // ── Baseline Verified Profiles ────────────────────────────────────────────────
 const INITIAL_LEETCODE: LiveLeetCodeData = {
-  totalSolved: 45,
-  totalQuestions: 3330,
-  easySolved: 41,
-  totalEasy: 830,
-  mediumSolved: 4,
-  totalMedium: 1740,
+  totalSolved: 60,
+  totalQuestions: 4069,
+  easySolved: 52,
+  totalEasy: 968,
+  mediumSolved: 8,
+  totalMedium: 2122,
   hardSolved: 0,
-  totalHard: 760,
-  ranking: 2894224,
+  totalHard: 979,
+  ranking: 2469387,
   rating: 1500,
   attendedContests: 0,
-  streak: 3,
-  activeDays: 26,
-  topLanguage: "Python3 (33) · C++ (10)",
+  streak: 0,
+  activeDays: 0,
+  topLanguage: "Python3 (52) · C++ (0)",
   avatarUrl: "https://github.com/Takurreddy.png",
 };
 
 const INITIAL_GITHUB: LiveGitHubData = {
   login: "Takurreddy",
-  name: "Mukku Takur",
-  avatar_url: "https://github.com/Takurreddy.png",
+  name: "MUKKU TAKUR REDDY",
+  avatar_url: "https://avatars.githubusercontent.com/u/180008826?v=4",
   html_url: "https://github.com/Takurreddy",
-  public_repos: 3,
-  followers: 0,
-  following: 0,
-  bio: "AI & Machine Learning Engineer",
+  public_repos: 18,
+  followers: 5,
+  following: 6,
+  bio: null,
   totalStars: 0,
 };
 
@@ -115,6 +115,13 @@ export const VERIFIED_REPOS = [
     description: "Phishing detection platform",
     stargazers_count: 0,
     language: "Python",
+  },
+  {
+    name: "HDL-Forge",
+    html_url: "https://github.com/Takurreddy/HDL-Forge",
+    description: "HDL design and verification toolkit",
+    stargazers_count: 0,
+    language: "Verilog",
   }
 ];
 
